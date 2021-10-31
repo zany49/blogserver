@@ -73,7 +73,7 @@ export const register =async(req, res)=>{
         subject:'The BlogBuckets - Verify your mail',
         html:`<h2>${user.name}! Thank you for registering on our site</h2>
             <h4>please verify your mail to continue..</h4>
-            <a href="http://localhost:8000/api/verify-email?token=${user.emailToken}">Verify your mail</a>`
+            <a href="https://blog-server12.herokuapp.com/api/verify-email?token=${user.emailToken}">Verify your mail</a>`
     }
     //sendingmail
     transporter.sendMail(mailOptions,function(error,info){
@@ -106,7 +106,7 @@ export const verifyEmail= async (req, res)=>{
         user.isVerified= true,
         await user.save()
         // res.json({error:"email is verified"})
-        res.redirect('http://localhost:3000/login')
+        res.redirect('https://abdul-blogger-app.netlify.app/login')
        
 
     }else{
@@ -227,7 +227,7 @@ export const passwordRest =async (req, res)=>{
       subject:'The BlogBuckets - Password rest link',
       html:`<h2>${user.name}! This your one time password-rest link</h2>
           <h4>please click on the link to rest your password..</h4>
-          <a href="http://localhost:3000/forgot-password/${token.resttoken}/${user._id}">Password rest link</a>`
+          <a href="https://abdul-blogger-app.netlify.app/forgot-password/${token.resttoken}/${user._id}">Password rest link</a>`
   }
   //sendingmail
   transporter.sendMail(mailOptions,function(error,info){
