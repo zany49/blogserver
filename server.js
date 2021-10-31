@@ -37,7 +37,7 @@ mongoose.connect(process.env.MONGO_URL, {
 app.use(express.json({limit:"5mb"})); //limiting the data size
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
-    origin: "*",
+    origin: [process.env.CLIENT_URL],
 }));
 
 //autoload routes
