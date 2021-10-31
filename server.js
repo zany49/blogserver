@@ -11,7 +11,7 @@ const morgan = require("morgan");
 const app = express();
 dotenv.config();
 //socket
-const http = require("http").createServer(app);
+const http = require("https").createServer(app);
 const io = require("socket.io")(http,{
     path:'/socket.io',
     cors:{
