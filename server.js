@@ -15,7 +15,7 @@ const http = require("http").createServer(app);
 const io = require("socket.io")(http,{
     path:'/socket.io',
     cors:{
-        origin:"http://localhost:3000",
+        origin:"https://abdul-blogger-app.netlify.app",
         methods:["GET","POST"],
         allowedHeaders:["Content-type"],
     },
@@ -37,7 +37,7 @@ mongoose.connect(process.env.MONGO_URL, {
 app.use(express.json({limit:"5mb"})); //limiting the data size
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
-    origin: [process.env.CLIENT_URL],
+    origin: "*",
 }));
 
 //autoload routes
