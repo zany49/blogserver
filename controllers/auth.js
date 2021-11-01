@@ -122,13 +122,17 @@ export const verifyEmail= async (req, res)=>{
 
   }
 }
-
+//no user Found
 //middleware verifyEmail
 export const MiddleVerifyEmail= async (req, res,next)=>{
 //
     try{
       const user = await User.findOne({ email:req.body.email})
-      if(user.isVerified){
+      if(!user){ 
+        return res.json({
+          error: 'User not found',
+        })
+      }else if(user.isVerified){
           next();
       }else{
           res.json({
