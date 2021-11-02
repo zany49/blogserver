@@ -15,7 +15,7 @@ const http = require("http").createServer(app);
 const io = require("socket.io")(http,{
     path:'/socket.io',
     cors:{
-        origin:"https://abdul-blogger-app.netlify.app",
+        origin:"https://abdul-blogger-app.netlify.app/",
         methods:["GET","POST"],
         allowedHeaders:["Content-type"],
     },
